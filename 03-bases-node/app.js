@@ -1,14 +1,14 @@
 const fs = require('fs');
 const { crearArchivo } = require('./utils/multiplicar.js');
+const argv = require('yargs')
+    .option('b', {
+        alias: 'base',
+        type: 'number',
+        demandOption: true,
+    }).argv
 
-const factor = 2;
 console.clear()
-crearArchivo(factor)
+console.log(argv);
+crearArchivo(argv.b)
     .then(nombreArchivo => console.log(nombreArchivo, 'creado'))
     .catch(err => console.log(err));
-
-let arr = [1];
-
-const [,,, test] = arr
-const test2 = arr[0]
-console.log(test, test2);
